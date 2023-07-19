@@ -1,0 +1,14 @@
+The SELECT statement is one of the most complex statements in PostgreSQL. It has many clauses that you can use to form a flexible query.
+
+Because of its complexity, we will break it down into many shorter and easy-to-understand tutorials so that you can learn about each clause faster.
+
+The SELECTstatement has the following clauses:
+
+    Select distinct rows using DISTINCT operator.
+    Sort rows using ORDER BY clause.
+    Filter rows using WHERE clause.
+    Select a subset of rows from a table using LIMIT or FETCH clause.
+    Group rows into groups using GROUP BY clause.
+    Filter groups using HAVING clause.
+    Join with other tables using joins such as INNER JOIN, LEFT JOIN, FULL OUTER JOIN, CROSS JOIN clauses.
+    Perform set operations using UNION, INTERSECT, and EXCEPT.
