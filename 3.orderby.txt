@@ -90,7 +90,7 @@ ORDER BY num NULLS FIRST;  //to show NULL First
 
 SELECT num
 FROM sort_demo
-ORDER BY num DESC; //if we order by desc the NULL values come at the top
+ORDER BY num DESC; //if we order by desc the NULL values come at the top, to correct add LAST or FIRST after the num DESC 
 
 
 
