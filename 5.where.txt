@@ -1,0 +1,111 @@
+SELECT select_list
+FROM table_name
+WHERE condition
+ORDER BY sort_expression
+
+Syntax
+
+PostgreSQL evaluates the WHERE clause after the FROM clause and before the SELECT and ORDER BY clause:
+
+
+=	Equal
+>	Greater than
+<	Less than
+>=	Greater than or equal
+<=	Less than or equal
+<> or !=	Not equal
+AND	Logical operator AND
+OR	Logical operator OR
+IN	Return true if a value matches any value in a list
+BETWEEN	Return true if a value is between a range of values
+LIKE	Return true if a value matches a pattern
+IS NULL	Return true if a value is NULL
+NOT	Negate the result of other operators
+
+//Semicolon is not necessary
+SELECT 
+	last_name,
+	first_name
+
+FROM
+	customer
+
+WHERE
+	first_name='Jamie'
+	
+ORDER BY
+	last_name DESC
+	
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT
+	last_name,
+	first_name
+FROM
+	customer
+WHERE
+	first_name = 'Jamie' AND 
+        last_name = 'Rice';
+        
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT
+	first_name,
+	last_name
+FROM
+	customer
+WHERE
+	last_name = 'Rodriguez' OR 
+	first_name = 'Adam';        //Returning if either of the query is satisfied
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT
+	first_name,
+	last_name
+FROM
+	customer
+WHERE 
+	first_name IN ('Ann','Anne','Annie');  //In case the first name lies in one of the given options
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT
+	first_name,
+	last_name
+FROM
+	customer
+WHERE 
+	first_name LIKE 'Ann%'  "%" matches any string with the char before it
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT
+	first_name,
+	LENGTH(first_name) name_length
+FROM
+	customer
+WHERE 
+	first_name LIKE 'A%' AND
+	LENGTH(first_name) BETWEEN 3 AND 5
+ORDER BY
+	name_length;
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT 
+	first_name, 
+	last_name
+FROM 
+	customer 
+WHERE 
+	first_name LIKE 'Bra%' AND 
+	last_name <> 'Motley';
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
