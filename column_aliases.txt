@@ -1,0 +1,34 @@
+A column alias allows you to assign a column or an expression in the select list of a SELECT statement a temporary name. The column alias exists temporarily during the execution of the query.
+
+SELECT column_name AS alias_name
+FROM table_name;
+
+
+SELECT 
+   first_name, 
+   last_name surname
+FROM customer;   //removing the AS keyword before the surname part
+
+
+SELECT
+    first_name || ' ' || last_name AS full_name
+FROM
+    customer;
+    
+
+
+column_name AS "column alias" //If alias contains space needed to use a double quote
+
+
+SELECT 
+   first_name, 
+   last_name surname   //it doesn't have a comma
+FROM 
+	customer;
+	
+
+SELECT 
+   first_name as ИМЯ, 
+   last_name Фамилия
+FROM 
+	customer;
