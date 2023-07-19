@@ -2,7 +2,7 @@ The SELECT statement is one of the most complex statements in PostgreSQL. It has
 
 Because of its complexity, we will break it down into many shorter and easy-to-understand tutorials so that you can learn about each clause faster.
 
-The SELECTstatement has the following clauses:
+The SELECT statement has the following clauses:
 
     Select distinct rows using DISTINCT operator.
     Sort rows using ORDER BY clause.
@@ -12,3 +12,32 @@ The SELECTstatement has the following clauses:
     Filter groups using HAVING clause.
     Join with other tables using joins such as INNER JOIN, LEFT JOIN, FULL OUTER JOIN, CROSS JOIN clauses.
     Perform set operations using UNION, INTERSECT, and EXCEPT.
+    
+    
+SELECT * FROM customer; used to select all the data from all columns
+
+SELECT
+
+first_name,
+last_name,
+email
+
+FROM 
+customer;   //General Syntax
+
+
+//
+
+SELECT 
+
+first_name || ' ' || last_name,
+email
+
+FROM 
+
+customer;   
+
+// returning the full name and email. Concatenation operator "||" used to join the first name and the last name and ' ' space
+
+
+SELECT 5 * 3; //rerturns results after calculating the expression
