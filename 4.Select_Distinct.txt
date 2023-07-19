@@ -73,7 +73,7 @@ ORDER BY
 //Distinct clause on Multiple columns
 
 SELECT
-	DISTINCT bcolor,
+	DISTINCT bcolor, //the case where the both the columns are not same
 	fcolor
 FROM
 	distinct_demo
@@ -83,7 +83,7 @@ ORDER BY
 
 
 SELECT
-	DISTINCT ON (bcolor) bcolor, //storing the first for each duplicates
+	DISTINCT ON (bcolor) bcolor, //storing the first for each duplicates  //case where the fist column throws the second duplicate thing it finds
 	fcolor
 FROM
 	distinct_demo 
