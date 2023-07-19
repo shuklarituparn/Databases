@@ -1,0 +1,106 @@
+SELECT
+	select_list
+FROM
+	table_name
+ORDER BY
+	sort_expression1 [ASC | DESC],
+        ...
+	sort_expressionN [ASC | DESC];
+	
+
+Order_by syntax
+
+PostgreSQL evaluates the clauses in the SELECT statment in the following order: FROM, SELECT, and ORDER BY:
+
+
+SELECT 
+   first_name ИМЯ, 
+   last_name Фамилия
+FROM 
+	customer
+
+order by
+
+	first_name ASC; Querying the first name and the last name from the table and ordering it by Ascending order
+	
+	
+	//Even after removing the ASC it'll be sorted
+	
+	
+SELECT 
+   first_name ИМЯ, 
+   last_name Фамилия
+FROM 
+	customer
+
+order by
+	first_name ASC, //to show the first_name by ascending order
+	last_name DESC; //to sort last_name by descending order
+
+//This query will result the database sorted by first and the last_name Ascending, and descending respectively
+
+
+//Postgres also has a length feature that returns the length of the string
+
+
+SELECT 
+   first_name ИМЯ, 
+	Length(first_name) len  length alias as len
+FROM 
+	customer
+
+order by
+	len desc   arranging the length descending
+	
+/*
+
+In the database world, NULL is a marker that indicates the missing data or the data is unknown at the time of recording.
+
+When you sort rows that contains NULL, you can specify the order of NULL with other non-null values by using the NULLS FIRST or NULLS LAST option of the ORDER BY clause:
+	
+		ORDER BY sort_expresssion [ASC | DESC] [NULLS FIRST | NULLS LAST]
+
+*/
+
+
+
+-- create a new table
+CREATE TABLE sort_demo(
+	num INT  //column num having INT values
+);
+
+-- insert some data
+INSERT INTO sort_demo(num)
+VALUES(1),(2),(3),(null);  //inserting the value in the table row 1,2,3 will have value 1,2,3 and the 4th row will have null
+
+SELECT num
+FROM sort_demo
+ORDER BY num;  //ordering by aescending order
+
+
+
+SELECT num
+FROM sort_demo
+ORDER BY num NULLS LAST;  //To show NULL last
+
+
+SELECT num
+FROM sort_demo
+ORDER BY num NULLS FIRST;  //to show NULL First 
+
+SELECT num
+FROM sort_demo
+ORDER BY num DESC; //if we order by desc the NULL values come at the top
+
+
+
+
+
+
+
+
+
+
+
+
+
