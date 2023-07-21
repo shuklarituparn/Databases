@@ -1,0 +1,53 @@
+SELECT
+	first_name,
+        last_name
+FROM
+	customer
+WHERE
+	first_name LIKE 'Jen%';
+	
+	
+Notice that the WHERE clause contains a special expression: the first_name, the LIKE operator and a string that contains a percent sign (%). The string 'Jen%' is called a pattern.	
+
+
+    Percent sign ( %) matches any sequence of zero or more characters.
+    Underscore sign ( _)  matches any single character.
+    
+ value LIKE pattern //Like keyword
+ 
+ value NOT LIKE pattern //Not like
+ 
+ 
+ SELECT
+	first_name,
+	last_name
+FROM
+	customer
+WHERE
+	first_name ILIKE 'BAR%'; //Same like "LIKE" just considers case matching
+	
+	
+
+SELECT
+	first_name,
+	last_name
+FROM
+	customer
+WHERE
+	first_name LIKE '_ane%'
+
+ORDER BY 
+	first_name;   //Matching a pattern and returning ordered ASC
+	
+	
+	
+SELECT
+	first_name,
+	last_name
+FROM
+	customer
+WHERE
+	first_name NOT LIKE '_ane%'
+
+ORDER BY 
+	first_name;
