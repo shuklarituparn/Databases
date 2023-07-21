@@ -1,0 +1,13 @@
+SELECT select_list 
+FROM table_name
+ORDER BY sort_expression
+LIMIT row_count
+
+LIMIT contrains the number of rows returned by the query
+
+
+To skip the number of rows before returning the row count we can use OFFSET 
+
+SELECT select_list
+FROM table_name
+LIMIT row_count OFFSET row_to_skip;
