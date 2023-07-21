@@ -1,0 +1,36 @@
+You use the BETWEEN operator to match a value against a range of values. The following illustrates the syntax of the BETWEEN operator:
+
+
+value BETWEEN low AND high;  //to check for a value between two values
+
+
+value >= low and value <= high  //Rewriting the between operator using <= and >= 
+
+
+
+value NOT BETWEEN low AND high; //To check if the value id in some range
+
+
+value < low OR value > high
+
+
+
+SELECT 
+	customer_id,
+	payment_id,
+	amount
+FROM 
+	payment
+WHERE 
+	amount NOT BETWEEN 8 AND 9 All the amount that is not between 8 and 9
+	
+	
+
+SELECT 
+	customer_id,
+	payment_id,
+	amount
+FROM 
+	payment
+	
+WHERE payment_date BETWEEN '2007-02-07' AND '2007-02-15'; //All the data where the payment date is between those two dates
