@@ -1,0 +1,64 @@
+To constrain the number of rows returned by a query, you often use the LIMIT clause. The LIMIT clause is widely used by many relational database management systems such as MySQL, H2, and HSQLDB. However, the LIMIT clause is not a SQL-standard.
+
+To conform with the SQL standard, PostgreSQL supports the FETCH clause to retrieve a number of rows returned by a query. Note that the FETCH clause was introduced in SQL:2008.
+
+
+
+OFFSET start { ROW | ROWS }
+FETCH { FIRST | NEXT } [ row_count ] { ROW | ROWS } ONLY
+
+
+
+The FETCH clause is functionally equivalent to the LIMIT clause. If you plan to make your application compatible with other database systems, you should use the FETCH clause because it follows the standard SQL.
+
+
+
+SELECT
+
+	film_id,
+	title
+
+FROM 
+	film
+
+ORDER BY
+	title
+
+FETCH FIRST ROW ONLY   //Standard sql query
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT
+
+	film_id,
+	title
+
+FROM 
+	film
+
+ORDER BY
+	title
+
+FETCH FIRST 20 ROW ONLY
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT
+
+	film_id,
+	title
+
+FROM 
+	film
+
+ORDER BY
+	title
+
+OFFSET 5 ROWS         //Skip the first 5 rows and  then show the result
+
+FETCH FIRST 20 ROW ONLY  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
