@@ -71,3 +71,6 @@ FROM
 	payment
 GROUP BY
 	DATE(payment_date);
+	
+	
+
