@@ -73,4 +73,8 @@ FROM
 	film f1
 	
 INNER JOIN film f2 on f1.title<>f2.title and f1.length=f2.length;
+
+
+    A PostgreSQL self-join is a regular join that joins a table to itself using the INNER JOIN or LEFT JOIN.
+    Self-joins are very useful to query hierarchical data or to compare rows within the same table.
 	
