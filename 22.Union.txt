@@ -1,0 +1,23 @@
+The UNION operator combines result sets of two or more SELECT statements into a single result set.
+
+The following illustrates the syntax of the UNION operator that combines result sets from two queries:
+
+
+SELECT select_list_1
+FROM table_expresssion_1
+UNION
+SELECT select_list_2
+FROM table_expression_2
+
+
+SELECT * FROM top_rated_films
+UNION ALL                        //this will show even the duplicate films
+SELECT * FROM most_popular_films;
+
+
+SELECT * FROM top_rated_films
+UNION                               //this will remove the duplicate entries from the list
+SELECT * FROM most_popular_films;
+
+
+//we can also add ORDER BY to sort it 
