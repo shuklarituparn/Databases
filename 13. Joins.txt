@@ -42,7 +42,10 @@ INNER JOIN basket_b //and theen joining the basket b
     
     
 
-PostgreSQL left join
+PostgreSQL left join:
+
+
+//Left join is basically returning the left set in a venn diagram completely
 
 The following statement uses the left join clause to join the basket_a table with the basket_b table. In the left join context, the first table is called the left table and the second table is called the right table.
 
@@ -70,7 +73,10 @@ FROM
     basket_a
 LEFT JOIN basket_b 
     ON fruit_a = fruit_b
-WHERE b IS NULL;
+WHERE b IS NULL;                  //TO just return the left set completely
+
+
+//Left join and LEFT outer join is basically the same
 
 
 
@@ -91,7 +97,7 @@ SELECT
     fruit_b
 FROM
     basket_a
-RIGHT JOIN basket_b ON fruit_a = fruit_b;
+RIGHT JOIN basket_b ON fruit_a = fruit_b;  //Right join on basket a with basket b
 
 
 
@@ -106,7 +112,7 @@ FROM
     basket_a
 RIGHT JOIN basket_b 
    ON fruit_a = fruit_b
-WHERE a IS NULL;
+WHERE a IS NULL;             //returning the rows from the second table where the first table is NULL
 
 PostgreSQL full outer join
 
@@ -120,7 +126,7 @@ SELECT
 FROM
     basket_a
 FULL OUTER JOIN basket_b 
-    ON fruit_a = fruit_b;
+    ON fruit_a = fruit_b;   //RETURNING THE ROWS FROM the both sides if the sides match and NULL If not
     
     
     
@@ -135,7 +141,7 @@ FROM
     basket_a
 FULL JOIN basket_b 
    ON fruit_a = fruit_b
-WHERE a IS NULL OR b IS NULL;
+WHERE a IS NULL OR b IS NULL;  to return the rows where the values is NULL
 
 
 
