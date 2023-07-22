@@ -58,3 +58,19 @@ ORDER BY manager;
  
  
 // now makes more sense
+
+
+
+//To return the different films that are having the same show length
+
+
+SELECT
+	f1.title,
+	f2.title,
+	f1.length
+
+FROM 
+	film f1
+	
+INNER JOIN film f2 on f1.title<>f2.title and f1.length=f2.length;
+	
