@@ -58,4 +58,4 @@ FROM
 	film f
 LEFT JOIN inventory i USING (film_id)
 WHERE i.film_id IS NULL
-ORDER BY title;
+ORDER BY title;                   //ordering by title
