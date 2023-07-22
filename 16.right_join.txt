@@ -1,0 +1,94 @@
+Suppose that you have two tables films and film_reviews like this:
+
+
+DROP TABLE IF EXISTS films;
+DROP TABLE IF EXISTS film_reviews;
+
+CREATE TABLE films(
+   film_id SERIAL PRIMARY KEY,
+   title varchar(255) NOT NULL
+);
+
+INSERT INTO films(title)
+VALUES('Joker'),
+      ('Avengers: Endgame'),
+      ('Parasite');
+
+CREATE TABLE film_reviews(
+   review_id SERIAL PRIMARY KEY,
+   film_id INT,
+   review VARCHAR(255) NOT NULL	
+);
+
+INSERT INTO film_reviews(film_id, review)
+VALUES(1, 'Excellent'),
+      (1, 'Awesome'),
+      (2, 'Cool'),
+      (NULL, 'Beautiful');
+      
+      
+      
+A film can have zero or many reviews and a review belongs to zero or one film. The film_id column in the films references the film_id column in the film_reviews table.
+
+The following shows the contents of the films and film_reviews tables:
+
+SELECT * FROM films;
+
+
+SELECT * FROM film_reviews;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT 
+   review, 
+   title
+FROM 
+   films
+RIGHT JOIN film_reviews 
+   ON film_reviews.film_id = films.film_id;
+   
+   
+"review"	"title"
+"Excellent"	"Joker"
+"Awesome"	"Joker"
+"Cool"	         "Avengers: Endgame"
+"Beautiful"	NULL                           //the fim table doesn't have any film with beautiful review so it returns just null
+   
+   
+In this statement, films is the left table and film_reviews is the right table.
+
+The RIGHT JOIN clause starts selecting data from the right table (film_reviews).
+
+For each row from the right table (film_reviews), it checks if the value in the film_id column of the film_reviews table equals the value in the film_id column of every row from the left table (films).
+
+If they are equal, the RIGHT JOIN creates a new row that contains columns from both tables specified in the SELECT clause and includes this new row in the result set.
+
+Otherwise, the RIGHT JOIN still creates a new row that contains columns from both tables and includes this new row in the result set. However, it fills the columns from the left table (films) with NULL.
+
+In other words, the RIGHT JOIN selects all rows from the right table whether or not they have matching rows from the left table.
+
+Based on the data from the films and film_reviews tables:
+
+    The review with id 1 matches with the film id 1.
+    The review with id 2 matches with film id 2.
+    The review with id 3 matches with the film id 2.
+    The review with id 4 doesn’t match any film therefore the title column is filled with NULL.
+
+Note that the RIGHT OUTER JOIN is the same as RIGHT JOIN. The OUTER keyword is optional
+
+
+
+
+SELECT review, title
+FROM films
+RIGHT JOIN film_reviews using (film_id)
+WHERE title IS NULL;
+
+
+SELECT review, title
+FROM films
+RIGHT JOIN film_reviews using (film_id)
+WHERE title IS NULL;
+
+
+//Right join takes the table on the right and gives the result containing it and the data that's same in the left table. If it's same it'll fill the SELECT Clause and if not it'll return the right table
