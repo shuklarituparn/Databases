@@ -1,0 +1,38 @@
+Introduction to PostgreSQL INTERSECT operator
+
+Like the UNION and EXCEPT operators, the PostgreSQL INTERSECT operator combines result sets of two or more SELECT statements into a single result set.
+
+The INTERSECT operator returns any rows that are available in both result sets.
+
+The following illustration shows the final result set produced by the INTERSECT operator.
+
+
+
+SELECT select_list
+FROM A
+INTERSECT
+SELECT select_list
+FROM B;
+
+The number of columns and their order in the SELECT clauses must be the same.
+The data types of the columns must be compatible
+
+
+
+SELECT select_list
+FROM A
+INTERSECT
+SELECT select_list
+FROM B
+ORDER BY sort_expression;
+
+
+
+select *
+from most_popular_films
+
+intersect
+
+select *
+
+from top_rated_films   //Returning the common element from both the tables
